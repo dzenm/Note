@@ -4,13 +4,14 @@
 ***
 
 #### 二、String类对象的创建
-声明：String stringName;
-字符串创建：stringName = new String(字符串常量);
-或stringName = 字符串常量;
+声明：`String stringName;`
+字符串创建：`stringName = new String(字符串常量);`
+或`stringName = 字符串常量;`
 ***
 
 ####三、String类构造方法
-#####1、public String()
+##### 1、public String()
+
 无参构造方法，用于创建空字符串的String对象
 
 ```
@@ -228,8 +229,13 @@ Long.toString(long l, int p)	  //p作为任意进制
 　　　　ch="abc".charAt(1); 返回'b'
 
 3、 getChars() 截取多个字符
-　　void getChars(int sourceStart,int sourceEnd,char target[],int targetStart)
+
+```
+void getChars(int sourceStart,int sourceEnd,char target[],int targetStart)
+```
+
 　　sourceStart指定了子串开始字符的下标，sourceEnd指定了子串结束后的下一个字符的下标。因此， 子串包含从sourceStart到sourceEnd-1的字符。接收字符的数组由target指定，target中开始复制子串的下标值是targetStart。
+
 　　例：String s="this is a demo of the getChars method.";
 　　　　char buf[]=new char[20];
 　　　　s.getChars(10,14,buf,0);
@@ -327,36 +333,36 @@ Long.toString(long l, int p)	  //p作为任意进制
 　　　　String substring(int startIndex)
 　　　　String substring(int startIndex,int endIndex)
 
-例子：
-//String所给出的方法均可以直接调用
+例子：String所给出的方法均可以直接调用
 
 ```
 public class Test{
-public static void main(String[] args){
-String s = "Welcome to Java World!";
-String s1 = " sun java ";
-System.out.println(s.startsWith("Welcome"));//字符串以Welcome开头
-System.out.println(s.endsWith("World"));//字符串以World结尾
-String sL = s.toLowerCase();//全部转换成小写
-String sU = s.toUpperCase();//全部转换成大写
-System.out.println(sL);
-System.out.println(sU);
-String b = s.substring(11);//从第十一位开始
-System.out.println(b);
-String c = s.substring(8,11);//从第八位开始在第十一位结束
-System.out.println(c);
-String d = s1.trim();//去掉首尾的空格
-System.out.println(d);
-String s2 = "我是程序员，我在学java";
-String e = s2.replace("我","你");
-System.out.println(e);
-int f = 5;
-String s3 = String.valueOf(f);
-System.out.println(s3);
-String s4 = "我是,这的,大王";
-String[] g = s4.split(",");
-System.out.println(g[0]);
-
+	public static void main(String[] args){
+		String s = "Welcome to Java World!";
+		String s1 = " sun java ";
+		System.out.println(s.startsWith("Welcome"));//字符串以Welcome开头
+		System.out.println(s.endsWith("World"));//字符串以World结尾
+		String sL = s.toLowerCase();//全部转换成小写
+		String sU = s.toUpperCase();//全部转换成大写
+		System.out.println(sL);
+		System.out.println(sU);
+		String b = s.substring(11);//从第十一位开始
+		System.out.println(b);
+		String c = s.substring(8,11);//从第八位开始在第十一位结束
+		System.out.println(c);
+		String d = s1.trim();//去掉首尾的空格
+		System.out.println(d);
+		String s2 = "我是程序员，我在学java";
+		String e = s2.replace("我","你");
+		System.out.println(e);
+		int f = 5;
+		String s3 = String.valueOf(f);
+		System.out.println(s3);
+		String s4 = "我是,这的,大王";
+		String[] g = s4.split(",");
+		System.out.println(g[0]);
+	}
+}
 ```
 
 当把字符串转换成基本类型时，例如，int，integer.praseInt(String s)

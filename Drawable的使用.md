@@ -15,7 +15,7 @@ public class RoundImageDrawable extends Drawable  {
   
     public RoundImageDrawable(Bitmap bitmap) {  
         mBitmap = bitmap;  
-        BitmapShader bitmapShader = new BitmapShader(bitmap, TileMode.CLAMP,  
+        BitmapShader bitmapShader = new 			BitmapShader(bitmap, TileMode.CLAMP,  
                 TileMode.CLAMP);  
         mPaint = new Paint();  
         mPaint.setAntiAlias(true);  
@@ -64,64 +64,63 @@ public class RoundImageDrawable extends Drawable  {
 
 * 核心代码就是draw，其中setAlpha、setColorFilter、getOpacity、draw这几个方法是必须实现的。getIntrinsicWidth、getIntrinsicHeight主要是为了在View使用wrap_content的时候，提供一下尺寸，默认为-1可不是我们希望的。setBounds就是去设置下绘制的范围。
 
-```
-Bitmap bitmap = BitmapFactory.decodeResource(getResources(),  
-                R.drawable.mv);  
-        ImageView imageView = (ImageView) findViewById(R.id.id_one);  
-        imageView.setImageDrawable(new RoundImageDrawable(bitmap));
-```
+  ```
+  Bitmap bitmap = BitmapFactory.decodeResource(getResources(),  
+                  R.drawable.mv);  
+          ImageView imageView = (ImageView) findViewById(R.id.id_one);  
+          imageView.setImageDrawable(new RoundImageDrawable(bitmap));
+  ```
 
+##### 2、圆形图片的绘制
 
-#####2、圆形图片的绘制
+* Paint绘制
 
-
-```public class CircleImageDrawable extends Drawable {  
-  
-    private Paint mPaint;  
-    private int mWidth;  
-    private Bitmap mBitmap ;   
-  
-    public CircleImageDrawable(Bitmap bitmap) {  
-        mBitmap = bitmap ;   
-        BitmapShader bitmapShader = new BitmapShader(bitmap, TileMode.CLAMP,  
-                TileMode.CLAMP);  
-        mPaint = new Paint();  
-        mPaint.setAntiAlias(true);  
-        mPaint.setShader(bitmapShader);  
-        mWidth = Math.min(mBitmap.getWidth(), mBitmap.getHeight());  
-    }  
-  
-    @Override  
-    public void draw(Canvas canvas) {  
-        canvas.drawCircle(mWidth / 2, mWidth / 2, mWidth / 2, mPaint);  
-    }  
-  
-    @Override  
-    public int getIntrinsicWidth() {  
-        return mWidth;  
-    }  
-  
-    @Override  
-    public int getIntrinsicHeight() {  
-        return mWidth;  
-    }  
-  
-    @Override  
-    public void setAlpha(int alpha) {  
-        mPaint.setAlpha(alpha);  
-    }  
-  
-    @Override  
-    public void setColorFilter(ColorFilter cf) {  
-        mPaint.setColorFilter(cf);  
-    }  
-  
-    @Override  
-    public int getOpacity() {  
-        return PixelFormat.TRANSLUCENT;  
-    }
-} 
-```
+  ```
+   private Paint mPaint;  
+      private int mWidth;  
+      private Bitmap mBitmap ;   
+    
+      public CircleImageDrawable(Bitmap bitmap) {  
+          mBitmap = bitmap ;   
+          BitmapShader bitmapShader = new BitmapShader(bitmap, TileMode.CLAMP,  
+                  TileMode.CLAMP);  
+          mPaint = new Paint();  
+          mPaint.setAntiAlias(true);  
+          mPaint.setShader(bitmapShader);  
+          mWidth = Math.min(mBitmap.getWidth(), mBitmap.getHeight());  
+      }  
+    
+      @Override  
+      public void draw(Canvas canvas) {  
+          canvas.drawCircle(mWidth / 2, mWidth / 2, mWidth / 2, mPaint);  
+      }  
+    
+      @Override  
+      public int getIntrinsicWidth() {  
+          return mWidth;  
+      }  
+    
+      @Override  
+      public int getIntrinsicHeight() {  
+          return mWidth;  
+      }  
+    
+      @Override  
+      public void setAlpha(int alpha) {  
+          mPaint.setAlpha(alpha);  
+      }  
+    
+      @Override  
+      public void setColorFilter(ColorFilter cf) {  
+          mPaint.setColorFilter(cf);  
+      }  
+    
+      @Override  
+      public int getOpacity() {  
+          return PixelFormat.TRANSLUCENT;  
+      }
+  }    
+  ```
 
 #####3、自定义Drawable状态
 
