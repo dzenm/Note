@@ -1,4 +1,4 @@
-# View 
+# View
 
 ###1、view的位置参数
 
@@ -225,3 +225,57 @@ public boolean onTouchEvent(MotionEvent event){
 
 ######1.使用Scroller
 
+```java
+Scroller scroller = new Scroller(mContent);
+//	缓慢滚动到指定位置
+private void smoothScrollTo(int destX, int destY){
+    int scrollX = getScrollX();
+    int deltaX = destX - scrollX;
+    //	1000ms内滑动destX,效果就是缓慢滑动
+    mScroller.startScroll(scrollX, 0, deltaX, 0, 1000);
+    invalidate();
+}
+
+public void computeScroll(){
+    if(mScroller.computerScrollOffset()){
+        scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+        postInvaldate();
+    }
+}
+```
+
+* Scroller的典型实用方法，工作原理如下：
+
+  先构造一个Scroller对象并且调用它的startScroll方法时，Scroller内部什么也没做，它只是保存了我们传递的几个参数。
+
+  ```Java
+  public void startScroll(int startX, int startY, int dx, int dy, int duration){
+      mMode = SCROLL_MODE;
+      mFinished = false;
+      mDuration = duration;
+      mStartTime = AnimationUtils.currentAnimalTimeMillis();
+      mStartX = startX;
+      mStartY = startY;
+      mFinalX = startX + dx;
+      mDeltaX = dx;
+      mDeltaY = dy;
+      mDurationReciprocal = 1.0f / (float) mDuration;
+  }
+  ```
+
+  这个方法的参数含义很清楚，startX和startY表示的是滑动的起点，dx和dy表示的是要滑动的距离，而duration表示的是滑动事件，即整个滑动过程完成所需要的时间，注意这里的滑动是指View内容的滑动而非View本身位置的改变
+
+
+
+### 3、View的工作原理
+
+##### 1、初始ViewRoot和DecorView
+
+​	viewRoot对应于ViewRootImpl类，它是连接WindowManager和DecorView的纽带，View的三大流程均是通过ViewRoot来完成的，在ActivityThread中，当Activity对象被创建完毕后，会讲DecorView添加到Window中，同时会创建ViewRootImpl对象，并将ViewRootImpl对象和DecorView建立关联。
+
+```java
+root = new ViewRootImpl(view.getContext(), display);
+root.setView(view, wparams, panelParentView);  
+```
+
+View的绘制流程是从ViewRoot的performTraversals方法开始的，它经过measure、layout和draw三个过程才能最终将一个View绘制出来，其中measure是用来测量View的宽和高，layout用来确定View在父容器中的放置位置，而draw则负责将View绘制在屏幕上。11
