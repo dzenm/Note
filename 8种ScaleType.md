@@ -1,20 +1,18 @@
 
 
-![1458573-b7ce213f05816e85](/Users/dinzhenyan/Downloads/1458573-b7ce213f05816e85.png)
-
-![1458573-4e468ddb0dbcd11c](/Users/dinzhenyan/Downloads/1458573-4e468ddb0dbcd11c.png)
+![img](https://upload-images.jianshu.io/upload_images/1458573-b7ce213f05816e85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 
 
 
-
-
-![1458573-f79bf962aed9c5bd](/Users/dinzhenyan/Downloads/1458573-f79bf962aed9c5bd.png)
-
+![img](https://upload-images.jianshu.io/upload_images/1458573-4e468ddb0dbcd11c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 
 
 
+![img](https://upload-images.jianshu.io/upload_images/1458573-f79bf962aed9c5bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 
-# 说明
+
+
+#说明
 
 1. FIT_XY：对原图宽高进行放缩，该放缩不保持原比例来填充满ImageView。
 2. MATRIX：不改变原图大小从ImageView的左上角开始绘制，超过ImageView部分不再显示。
