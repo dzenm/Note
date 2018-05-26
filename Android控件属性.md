@@ -1,6 +1,6 @@
 # 控件属性：
 
-####android属性
+####Android属性
 
 #####第一类 : 属性值为true或false
 
@@ -486,9 +486,9 @@ android:textappearance="?android:attr/textappearancelargeinverse"
 #####通过edittext的layout xml文件中的相关属性来实现: 
 
     1. 密码框属性 android:password ="true"  这条可以让edittext显示的内容自动为星号，输入时内容会在1秒内变成*字样。
-
+    
     2. 纯数字 android:numeric="true" 这条可以让输入法自动变为数字输入键盘，同时仅允许0-9的数字输入
-
+    
     3. 仅允许 android:capitalize="cwj1987" 这样仅允许接受输入cwj1987，一般用于密码验证
 
   * 下面是一些扩展的风格属性

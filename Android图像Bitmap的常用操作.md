@@ -1,6 +1,6 @@
 
 
-###android中bitmap获取像素的RGB
+###Android中bitmap获取像素的RGB
 
 对图片的特定位置取色，比如类似与吸管效果。取色后如何获取其R、G、B、A 代码如下：
 
